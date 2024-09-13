@@ -370,7 +370,7 @@ button:hover {
 
 .dropdown-container {
     position: absolute;
-    top: 0px;
+    top: 3px;
     margin-right: 30px;
     right: 20px;
     display: flex;
@@ -467,12 +467,12 @@ button:hover {
 
 .notification .counter {
     position: absolute;
-    top: -5px;
+    top: -1px;
     right: -5px;
     background-color: red;
     color: white;
     font-size: 12px;
-    padding: 2px 6px;
+    padding: 2px 4px;
     border-radius: 50%;
     font-weight: bold;
 }
