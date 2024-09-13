@@ -222,6 +222,10 @@ logoutBtn.addEventListener('click', () => {
 const addToCart = (e) => {
     e.preventDefault();
     const newPrice = prompt("Add price:", '100');
+    if (isNaN(newPrice)) {
+        alert("Please enter a valid number for price");
+        return;
+    }
 
     let name;
     const user = JSON.parse(localStorage.getItem('userStore'));
