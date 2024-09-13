@@ -722,10 +722,11 @@ align-items: center;
     font-weight: bold;
 
     /* border: 2px solid white; */
-    border: none;
+    border: 0px solid white;
 }
 #pricetd{
     text-align: right;
+    border: 0px solid white;
 
 }
 

@@ -74,14 +74,8 @@ const totalSpan = document.querySelector('#total-span');
 
 
 
-// function updateCounter() {
-//     const pendingItems =shoppingItemList.length;
-//     document.querySelector('.notification .counter').textContent = pendingItems;
-// }
-
 function updateCounter() {
-    // Count the number of rows/items in the shopping list (excluding the header)
-    const pendingItems = document.querySelectorAll('#shopping-item-list tr:not(#headerRow)').length;
+    const pendingItems = document.querySelectorAll('#shopping-item-list tr:not(#headerRow):not([style*="text-decoration: line-through"])').length;
     document.querySelector('.notification .counter').textContent = pendingItems;
 }
 
@@ -342,11 +336,14 @@ onValue(ref(dataBase, "shoppingList"), (snapshot) => {
 
             if (completed) {
                 row.style.textDecoration = 'line-through';
+                updateCounter()
             }
 
             row.addEventListener('click', () => {
                 const exactLocation = ref(dataBase, `shoppingList/${key}`);
                 update(exactLocation, { completed: !completed });
+                updateCounter()
+
             });
 
             row.addEventListener('dblclick', () => {
@@ -368,6 +365,8 @@ onValue(ref(dataBase, "shoppingList"), (snapshot) => {
                     const exactLocation = ref(dataBase, `shoppingList/${key}`);
                     update(exactLocation, { price: newEditPrice });
                 }
+                updateCounter();
+
             });
 
             totalPrice += parseInt(price);
@@ -377,6 +376,8 @@ onValue(ref(dataBase, "shoppingList"), (snapshot) => {
         
     } else {
         shoppingItemList.innerHTML = 'No items here... add an item';
+        updateCounter();
+
     }
 });
 
