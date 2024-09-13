@@ -447,13 +447,36 @@ button:hover {
     width: 20px;
 } 
 
-.notification  {
+/* .notification  {
     padding: 10px;
     border-radius: 30px;
     background-color: #f0dbec;
     height: 20px;
     width: 20px;
-} 
+}  */
+
+.notification {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: #f0dbec;
+    height: 20px;
+    width: 20px;
+}
+
+.notification .counter {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
 .notification:hover  {
     padding: 10px;
     border-radius: 30px;

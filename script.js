@@ -73,6 +73,19 @@ const priceInput = document.querySelector('#price-input');
 const totalSpan = document.querySelector('#total-span');
 
 
+
+// function updateCounter() {
+//     const pendingItems =shoppingItemList.length;
+//     document.querySelector('.notification .counter').textContent = pendingItems;
+// }
+
+function updateCounter() {
+    // Count the number of rows/items in the shopping list (excluding the header)
+    const pendingItems = document.querySelectorAll('#shopping-item-list tr:not(#headerRow)').length;
+    document.querySelector('.notification .counter').textContent = pendingItems;
+}
+
+
 themeIcon.addEventListener('click', () => {
     card.classList.toggle('dark-theme');
     dropdown.classList.toggle('dark-theme');
@@ -164,6 +177,7 @@ const onGoogleLogin = () => {
         namebox.textContent = name;
         imgbox.setAttribute('src', pic);
         applyThemePreference(userId); 
+        updateCounter();
     }
 };
 
@@ -203,6 +217,8 @@ document.querySelector('#login').addEventListener('click', (e) => {
             namebox.style.display = 'flex';
             imgbox.style.display = 'none';
             applyThemePreference(user.uid);
+            updateCounter();
+
         })
         .catch((error) => {
             console.error('Sign in error', error.code, error.message);
@@ -250,6 +266,7 @@ const addToCart = (e) => {
         push(ref(dataBase, "shoppingList"), { item, user: name, date,price, completed: false });
         inputField.value = '';
     }
+    updateCounter();
 };
 inputForm.addEventListener('submit', addToCart);
 
@@ -335,6 +352,7 @@ onValue(ref(dataBase, "shoppingList"), (snapshot) => {
             row.addEventListener('dblclick', () => {
                 const exactLocation = ref(dataBase, `shoppingList/${key}`);
                 remove(exactLocation);
+                updateCounter()
             });
 
             editIcon.addEventListener('click', (e) => {
