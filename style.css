@@ -624,6 +624,7 @@ align-items: center;
     justify-content: center;
     align-items: center;
     margin: 5px;
+    padding: 3px;
 }
 
 #input-field:hover {
@@ -672,6 +673,7 @@ align-items: center;
     margin: 10px;
     border-radius: 10px;
     color: white;
+    padding: 3px;
 }
 
 #shopping-item-list {
