@@ -10,9 +10,10 @@
 
 //   const app = initializeApp(firebaseConfig);
 
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
-import { getDatabase, ref, onValue, push, remove, update } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-dataBase.js";
+import { getDatabase, ref, onValue, push, remove, update } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
+
 
 window.env = {
     New_api_key: "AIzaSyCJ4yVLSJUDcn-4o5e2lk1jxMdwgLCCu0I"
@@ -25,7 +26,7 @@ const firebaseConfig = {
         storageBucket: "refreshedtodolist.appspot.com",
         messagingSenderId: "713449846807",
         appId: "1:713449846807:web:b3a2d5a62e9ec00875c452",
-    databaseURL: "https://refreshedtodolist-default-rtdb.firebaseio.com/",
+    databaseURL: "https://refreshedtodolist-default-rtdb.firebaseio.com/"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -220,7 +221,7 @@ logoutBtn.addEventListener('click', () => {
 });
 const addToCart = (e) => {
     e.preventDefault();
-    const newPrice = prompt("Add price:", 'price');
+    const newPrice = prompt("Add price:", '100');
 
     let name;
     const user = JSON.parse(localStorage.getItem('userStore'));
